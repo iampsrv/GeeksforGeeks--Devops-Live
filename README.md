@@ -73,6 +73,7 @@
 - AWS IAM: Users, groups, policies, roles,
 - AWS EC2: Basic, instance types, security groups
 - AWS Containers: ECR, ECS and Fargate
+- AWS Devops: Code Commit, Code Build, Code Deploy, Code Pipeline, Codestar, cloud9, Cloudshell
 
 # # Week 6 - Infrastructure as Code
 - What is Infrastructure as code?
@@ -101,4 +102,4 @@
 - Deploying Application Using Kubernetes
 - Deploy AWS services using Terraform
 - Deploying Application Using AWS ECR, ECS and Fargate
-- AWS Devops: Code Commit, Code Build, Code Deploy, Code Pipeline, Codestar, cloud9, Cloudshell
+
