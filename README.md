@@ -1,9 +1,12 @@
 # GeeksforGeeks [Devops Live](https://practice.geeksforgeeks.org/courses/devops-live)
 
+
 **What is Devops?**
+
 *DevOps is a set of practices that combines software development and IT operations to improve collaboration and automation. It aims to deliver better software faster through continuous integration, delivery, and deployment. DevOps emphasizes a culture of collaboration and transparency to create a more agile organization.*
 
 # # Course Content
+[Table](https://github.com/users/iampsrv/projects/2/views/1)
 
 # # Week 1 - DevOps Fundamentals
 - Linux Fundamentals
