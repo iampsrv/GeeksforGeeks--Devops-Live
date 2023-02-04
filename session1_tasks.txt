@@ -1,0 +1,7 @@
+Tasks:
+
+1. Create a github repository or Clone my repository
+2. Create new file and push it into github
+3. Create new branch named "Feature1", add some changes into files and merge new branch into master branch
+4. Experiment with different git commands which I have discussed in the session
+5. Enjoy your day
