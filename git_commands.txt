@@ -1,0 +1,33 @@
+git init <dir>: Initialize git repository
+git clone <url>: Clone git repository
+git add <file>: Stage file
+git add .: Stage all files
+git commit -m <commit-msg>: Commit all staged files
+git commit -am <commit-msg>: Commit and staged all files
+git status: Displays the state of the working directory and the staging area
+git log: Review and read a history of everything that happens to a repository
+git diff: Show changes to unstaged file
+git reset: Undo local changes to the state of a Git repo
+git revert: Forward-moving undo operation that offers a safe method of undoing changes
+git remote -v: View remote repository
+git remote add <remote-name> <url>: Add remote repository
+git remote remove <remote-name>: Remove remote repository
+git remote rename <old-remote-name> <new-remote-name>: Rename remote repository
+git push <remote-name> <branch-name>: Upload local git repo to remote repository
+git fetch <remote-name> <branch-name>: Download contents from a remote repository to local git
+git pull <remote-name> <branch-name>: Download contents from a remote repository and immediately update the local repository
+git branch: List all branches
+git branch <new-branch-name>: Create new branch
+git checkout <branch>: Switch to branch
+git checkout -b <new-branch-name>: Create and switch to new branch
+git branch -d <branch-name>: Delete branch
+git merge <branch-name>: Merge two branches
+git rebase <branch-name>: Rebase two branches
+git stash: Takes uncommitted changes (both staged and unstaged), saves them away for later use, and then reverts them from your working copy.
+git stash save <comment>: Save stash
+git stash list: List all stash
+git stash apply: Apply recent stash
+git stash apply stash@{1}: Apply stash id 1
+git stash show stash@{1}: Show stash id 1
+git stash drop stash@{1}: Drop stash id 1
+git stash clear: Clear all stashes
