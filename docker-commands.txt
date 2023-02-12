@@ -1,0 +1,96 @@
+# docker ps: List the running containers
+# docker ps -a: List all the containers (both running and stopped)
+# docker version: Show the version of installed docker
+# docker info: Display information related to the Docker installation
+# docker images: Show all locally saved docker images
+# docker pull <docker-image-name>: Pull/download docker image from docker hub
+# docker create <docker-image-name>: Create docker container without starting it
+# docker start <container-name>: Start the docker container
+# docker run -it --rm ubuntu /bin/bash: Run the docker container in terminal interactive mode
+# docker run -d --name <container-name> -p <hostport>:<containerport> <image-name>: Map a port  Example: docker run -d --name nginx-base -p 80:80 nginx:latest {D stands for running container background}
+# docker run -P nginx
+# docker logs <container-name>: Show the logs of containers
+# docker export <container-name> -o <filename>.tar: Export a container's filesystem as a tar archive
+# docker pause <container-name>: Pause all processes within one or more containers
+# docker unpause <container-name>: unpause all processes within one or more containers
+# docker restart <container-name>: Restart one or more containers
+# docker port <container-name>: Display port mapping of container
+# docker kill <container-name>: Kill container
+# docker stop <container-name>: Stop containers (different from kill)
+# docker events: Capture the real time events from server
+
+# Commit changes
+apt update && apt upgrade -y
+apt install python3
+STOP RUNNING THE CONTAINER
+docker ps -a
+docker commit <container-id> <new-docker-image>
+
+# docker inspect <container/image>: Get detailed (configuration) info about container or image
+# docker diff <container-name>: Show all modified files in a container Status- A(added), C(changed), D(deleted) file/dir
+# docker rename <old-container-name> <new-container-name>
+# docker stats: Show stats of running containers
+# docker save <image-name> <file.tar>: Save docker image to tar file
+# docker load -i <tarfile>: Load docker image from tar file
+# docker rmi <image-name>: Delete docker image
+# docker top <container-name>: Show process of containers
+# docker rm <container-name>: Delete a container
+# docker rm -f <container-name>: Delete a running container
+# docker stop <container-name>: Stop a container
+# docker exec -it <running-container-name> /bin/bash
+# docker attach --sig-proxy=false <container-id> and to detach hold ctrl, then press P, then Q and then release ctrl
+docker attach --detach-keys="ctrl-x" <container-id>
+# docker cp <container-name>:source target ---> Copy a file from container to host  Example: docker cp kind_golick:/home/pranjal.txt p.txt
+# docker cp <container-name>:target ---> Copy a file from host to container Example: docker cp p.txt kind_golick:/home/hw.txt
+# docker history <image-name>: Show the history of a docker image
+# docker update --cpu-shares 512 -m 300M <container-name/id>: To update the container configuration ---> check the container configuration using docker inspect <container-name>
+
+# Setup a Docker Nginx reverse proxy server
+docker run -d --name nginx-base -p 80:80 nginx:latest
+
+
+##################app.py#######################
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return 'Web App with Python Flask!'
+
+app.run(host='0.0.0.0', port=5001, debug=True)
+
+##################Dockerfile###################
+FROM python
+COPY . /app
+WORKDIR /app
+COPY req.txt .
+RUN pip install -r req.txt
+EXPOSE 5001
+CMD ["python", "app.py"]
+--
+docker build -t <image-name> .
+
+docker run -it -p 5001:5001 <image-name>
+
+docker tag newfa psrv3/newfa
+
+docker push psrv3/newfa
+-------------------------------------------------------------------------------------------------------------
+
+docker volume
+docker system
+docker newtwork
+docker image
+docker container
+docker service
+docker manifest
+
+--------------------------------------------
+docker exec vs docker attach
+docker exec lets you run more than one process inside a container.
+docker attach basically used to attach your host systems standard input, standard output and standard error with that of a container.
+When you run an exec, it will basically spins up a new process inside the container whereas attach basically lets you attach to an existing process inside the container.
+
+
+________________________________________________________________________________________________________________________
