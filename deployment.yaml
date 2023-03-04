@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myfirstdeployment
+  labels:
+    app: nginx
+spec:
+  template:
+    metadata:
+      name: myfirstpod
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: myfirstpod
+          image: nginx:latest
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  replicas: 5
+  selector:
+    matchLabels:
+      app: nginx
