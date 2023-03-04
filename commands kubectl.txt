@@ -1,0 +1,93 @@
+# Display kubeconfig settings
+
+kubectl config view 
+
+# list of users
+
+kubectl config view -o jsonpath='{.users[*].name}'
+
+# display list of contexts 
+
+kubectl config get-contexts
+
+# display the current-context
+
+kubectl config current-context 
+
+# set the default context to new-cluster
+
+kubectl config use-context new-cluster
+
+# add a new user to your kubeconf that supports basic auth 
+
+kubectl config set-credentials url --username=user1 --password=userpassword
+
+# kubectl create
+
+The kubectl create uses imperative Management. In Kubectl create you specify what you want to create, delete or replace.
+
+kubectl create -f example.yaml
+
+# kubectl apply
+
+The kubectl apply uses Declarative approach where we tell the api how our cluster should look like. So your changes will be maintained even if you've applied changes to a live object.
+
+kubectl apply -f example.yaml
+
+# get the documentation for pod manifests
+
+kubectl explain pods
+
+# List all services 
+
+kubectl get services
+
+kubectl get svc
+
+# List all pods in all namespaces
+
+kubectl get pods --all-namespaces
+
+# List all pods in the current namespace, with more details
+
+kubectl get pods -o wide
+
+# Get a pod's YAML
+
+kubectl get pod my-pod -o yaml  
+
+# Describe pod, rs, rc, deployment and svc
+
+kubectl describe pod <pod name>
+
+kubectl describe rs <rs name>
+
+kubectl describe rc <rc name>
+
+kubectl describe deploy<deploy name>
+
+kubectl describe svc <svc name>
+
+# Deployment Related commands
+
+kubectl rollout status deployment/mydeploy
+
+kubectl get deployments
+
+kubectl set image deployment/mydeploy nginx=nginx:1.16.1 --record
+
+kubectl edit deployment.v1.apps/mydeploy 
+
+kubectl rollout history deployment.v1.apps/mydeploy 
+
+kubectl rollout undo deployment.v1.apps/mydeploy 
+
+# Scaling Related Commands
+
+kubectl scale --replicas=3 rs/nginx_rs                          
+
+kubectl scale --replicas=3 -f nginx_define.yaml                           
+
+kubectl scale --current-replicas=2 --replicas=3 deployment/nginx
+
+kubectl scale --replicas=5 rc/abc rc/def rc/ghi    
