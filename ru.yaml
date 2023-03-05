@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment-ru
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: my-app-ru
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: my-app-ru
+    spec:
+      containers:
+      - name: my-container-ru
+        image: nginx
+        ports:
+        - containerPort: 80
+
+        #kubectl set image deployment/my-deployment-rc my-container-rc=tomcat

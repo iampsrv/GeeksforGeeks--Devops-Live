@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    args:
+      - /bin/sh
+      - -c
+      - env;
+    resources: {}
+    env:
+      - name: env
+        valueFrom:
+          configMapKeyRef:
+            name: config
+            key: env
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+status: {}
+#kubectl log nginx
