@@ -31,3 +31,4 @@ git stash apply stash@{1}: Apply stash id 1
 git stash show stash@{1}: Show stash id 1
 git stash drop stash@{1}: Drop stash id 1
 git stash clear: Clear all stashes
+git cherrypick
