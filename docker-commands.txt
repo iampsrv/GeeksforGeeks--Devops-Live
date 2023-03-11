@@ -70,12 +70,12 @@ EXPOSE 5001
 CMD ["python", "app.py"]
 --
 docker build -t <image-name> .
-
+docker build -t <docker-username>/<repo-name> .
 docker run -it -p 5001:5001 <image-name>
 
-docker tag newfa psrv3/newfa
+docker tag <image-name> <docker-username>/<repo-name>
 
-docker push psrv3/newfa
+docker push <docker-username>/<repo-name>
 -------------------------------------------------------------------------------------------------------------
 
 docker volume
