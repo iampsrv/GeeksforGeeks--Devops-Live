@@ -1,0 +1,5 @@
+Assignment 1 -Use Git branching to manage a project with multiple features. Create a branch for each feature, and then merge the changes into the master branch using pull requests.
+
+Assignment 2- Create a Docker-compose file to manage multiple containers. Write a Docker-compose file that defines the configuration for multiple containers that work together to create a web application. Start and stop the containers using the Docker-compose commands.
+
+Assignment 3-  Build a Docker image from a Dockerfile. Write a Dockerfile that specifies the base image, dependencies, and commands needed to create a container for a simple web application. Build the image and then run a container from it.
