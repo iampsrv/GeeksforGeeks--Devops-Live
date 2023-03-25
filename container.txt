@@ -1,0 +1,52 @@
+cluster task-----------
+provide cluster name
+check create vpc
+
+create task---------
+select fargate
+provide task name
+select ecstaskexecutionrole
+awsvpc network
+linux os family
+0.5 gb memory
+0.25 vcpu
+add container name, image and port mapping (5001)
+
+
+run task-----------
+fargate
+linux
+select created task, cluster
+selected created vpc and subnet
+edit task role to ecstaskexecutionrole
+edit security group custom tcp 5001 port
+
+
+service------
+fargate
+linux
+selected task, cluster
+provide service name and add replica (no of tasks)
+selected created vpc and subnet
+edit security group custom tcp 5001 port
+
+
+ec2-------------------------------------------------------------
+cluster name
+on demand
+t2.micro
+create a new vpc
+iam role
+default vpc
+512 memory, 512 cpu
+add container name, image and port mapping (5001)
+
+
+tasks
+ec2
+selected task, cluster
+
+service
+ec2
+selected task, cluster
+provide service name and add replica (no of tasks)
