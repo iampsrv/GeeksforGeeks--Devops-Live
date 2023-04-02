@@ -1,0 +1,20 @@
+kubectl create -f deploy_metric-server.yaml
+kubectl get deploy -n kube-system
+kubectl get all -n kube-system
+kubectl top node
+
+minikube addons enable metrics-server
+
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
+kubectl describe deploy metrics-server -n kube-system
+kubectl edit deploy metrics-server -n kube-system
+
+
+	command:
+        - /metrics-server
+        - --kubelet-insecure-tls
+        - --kubelet-preferred-address-types=InternalIP
+	image: k8s.gcr.io/metrics-server-amd64:v0.3.6 (put above lines before this line)
+
+
+kubectl autoscale deployment <deploy-name> --cpu-percent=80 --min=1 --max=4
