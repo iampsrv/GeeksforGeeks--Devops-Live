@@ -1,0 +1,32 @@
+version: 0.2
+env:
+  variables:
+    Name: "Pranjal Srivastava"
+
+phases:
+  install:
+    
+    runtime-versions:
+      python: 3.8
+
+  pre_build:
+    commands:
+      - pip3 install --upgrade pip
+      - echo "Build Started by $Name"
+ 
+  build:
+    commands:
+      - echo Installing dependencies...
+      - pip install -r requirements.txt
+      - pip install pytest
+      - echo Listing all files and folders...
+      - ls -ltr
+      
+  post_build:
+    commands:
+      - python -m pytest test.py --junitxml=report.xml
+reports:
+  pytest_reports:
+    files:
+      - report.xml
+    file-format: JunitXml
